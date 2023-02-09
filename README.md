@@ -1,3 +1,7 @@
+# For dev team
+ *Please make sure to create your own branch to work on the project.*
+
+
 # SJSU-CMPE-133-Group-1
 
 Members: 
