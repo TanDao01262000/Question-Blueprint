@@ -35,10 +35,13 @@ Topic: Question and Answer (Q&A) web based application
 # Clone project
   1. Clone repo to local machine: 
          ``git clone git@github.com:TanDao01262000/Question-Blueprint.git``
-  2. Navigate to the project directory:
-        ``cd QB``
-  3. Create a virtual environment and activate it
-  4. Install list of requirements: 
+  2. Create a virtual environment and activate it
+  3. Install list of requirements: 
         ``pip install -r requirement.txt``
+  4. Navigate to the project directory:
+        ``cd QB``
+  4. Run project: 
+        `` python manage.py runserver``
+  
           
 
