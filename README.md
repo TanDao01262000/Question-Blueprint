@@ -34,7 +34,7 @@ Topic: Question and Answer (Q&A) web based application
   2. 
 # Clone project
   1. Clone repo to local machine: 
-         ``git clone git@github.com:TanDao01262000/SJSU-CMPE-133-Group-1.git``
+         ``git clone git@github.com:TanDao01262000/Question-Blueprint.git``
   2. Navigate to the project directory:
         ``cd QB``
   3. Create a virtual environment and activate it
