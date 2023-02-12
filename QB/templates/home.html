@@ -3,27 +3,31 @@
 <div class="row px-5">
   <div class="col-md-9 col-sm-12">
     <div class="list-group w-100">
-      <a
-        href="#shortExampleAnswer1collapse"
-        data-mdb-toggle="collapse"
-        aria-expanded="false"
-        aria-controls="shortExampleAnswer1collapse"
-        class="list-group-item list-group-item-action"
-      >
+      <div class="list-group-item list-group-item-action">
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Question 1</h5>
+          <a href="{% url 'question_blueprint:home' %}" class="mb-1"
+            >Question 1</a
+          >
         </div>
-        <p class="mb-1">Short & concise version of the answer.</p>
-        <small><u>Learn more</u></small>
-        <!-- Collapsed content -->
-        <div class="collapse mt-3" id="shortExampleAnswer1collapse">
-          Detailed and comprehensive answer goes here. pariatur cliche
-          reprehenderit, enim eiusmod high life accusamus terry richardson ad
-          squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-          cred nesciunt sapiente ea proident.
+        <p class="mb-1">
+          Short & concise version of the
+        </p>
+        <a
+          href="#shortExampleAnswer1collapse"
+          data-mdb-toggle="collapse"
+          aria-expanded="false"
+          aria-controls="shortExampleAnswer1collapse"
+        >
+          <small><u>Learn more</u></small>
+          <!-- Collapsed content -->
+          <div class="collapse mt-3" id="shortExampleAnswer1collapse">
+            Detailed and comprehensive answer goes here. pariatur cliche
+            reprehenderit, enim eiusmod high life accusamus terry richardson ad
+            squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+            cred nesciunt sapiente ea proident.
           </div>
-
-      </a>
+        </a>
+      </div>
       <a
         href="#shortExampleAnswer2collapse"
         data-mdb-toggle="collapse"
@@ -34,14 +38,14 @@
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">Question 2</h5>
         </div>
-        <p class="mb-1">Short & concise version of the answer.</p>
+        <p class="mb-1">Short description</p>
         <small class="text-muted"><u>Learn more</u></small>
         <!-- Collapsed content -->
         <div class="collapse mt-3" id="shortExampleAnswer2collapse">
           Detailed and comprehensive answer goes here. pariatur cliche
           reprehenderit, enim eiusmod high life accusamus terry richardson ad
-          squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-          cred nesciunt sapiente ea proident.
+          squid. Nihil anim keffiyeh helvetica, craft beer labore wes
+          andersoncred nesciunt sapiente ea proident.
         </div>
       </a>
       <a
@@ -58,30 +62,67 @@
         <small class="text-muted"><u>Learn more</u></small>
         <!-- Collapsed content -->
         <div class="collapse mt-3" id="shortExampleAnswer3collapse">
-          Detailed and comprehensive answer goes here. pariatur cliche
-          reprehenderit, enim eiusmod high life accusamus terry richardson ad
-          squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-          cred nesciunt sapiente ea proident.
+          Technology has greatly impacted our daily lives. From smartphones to
+          laptops, technology has made communication, information, and
+          entertainment more accessible and convenient. With the rise of the
+          internet, we are now able to connect with people from all over the
+          world, access unlimited amounts of information, and enjoy endless
+          forms of entertainment. However, technology has also brought about new
+          challenges, such as cybersecurity and privacy concerns. As technology
+          continues to evolve and shape our world, it is important for us to be
+          responsible and mindful of how we use it to ensure it enhances, rather
+          than detracts from, our lives.
         </div>
       </a>
     </div>
   </div>
-  <div class="col-12 col-md-3 ">
-    
+  <div class="col-12 col-md-3">
     <ul class="list-group list-group-light flex-fill">
-  <li class="list-group-item px-3 active text-center" aria-current="true">
-    Topics
-  </li>
-  <a class="list-group-item border-1 mx-4 text-center" href="#">A second topic</a>
-  <a class="list-group-item border-1 mx-4 text-center" href="#">A third topic</a>
-  <a class="list-group-item border-1 mx-4 text-center" href="#">A fourth topic</a>
-  <a class="list-group-item border-1 mx-4 text-center" href="#">And a fifth topic</a>
-</ul> 
-
+      <li class="list-group-item px-3 active text-center" aria-current="true">
+        Topics
+      </li>
+      <a class="list-group-item border-1 mx-4 text-center" href="#"
+        >A second topic</a
+      >
+      <a class="list-group-item border-1 mx-4 text-center" href="#"
+        >A third topic</a
+      >
+      <a class="list-group-item border-1 mx-4 text-center" href="#"
+        >A fourth topic</a
+      >
+      <a class="list-group-item border-1 mx-4 text-center" href="#"
+        >And a fifth topic</a
+      >
+    </ul>
   </div>
 </div>
 
-
-
-
 {% endblock %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h6 class="text-muted">List Group with Badges</h6>
+      <ul class="list-group">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          Crime and Punishment
+          <span class="badge badge-primary badge-pill">10</span>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          A Clockwork Orange
+          <span class="badge badge-primary badge-pill">14</span>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          The Age of Innocence
+          <span class="badge badge-danger badge-pill">5</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
