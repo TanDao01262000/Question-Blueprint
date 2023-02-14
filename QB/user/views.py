@@ -3,6 +3,8 @@ from . forms import UserRegisterForm, ProfileUpdateForm, UserInfoUpdateForm
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from question_blueprint.models import Question
 
 # Create your views here.
 def login(request):
@@ -30,8 +32,14 @@ def register(request):
 
 
 @login_required
-def profile_view(request):
-    return render(request, 'user/profile.html', {})
+def profile_view(request, username):
+    user1 = User.objects.get(username=username)
+    question_count = Question.objects.filter(user=user1).count()
+    context = {
+        'user1' : user1,
+        'question_count': question_count,
+    }
+    return render(request, 'user/profile.html', context=context)
 
 
 @login_required
