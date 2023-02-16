@@ -17,3 +17,12 @@ class QuestionListView(ListView):
 class QuestionDetailView(DetailView):
     model = Question
     context_object_name = 'single_question'
+
+
+class QuestionCreateView(CreateView):
+    model = Question
+    fields = ['title', 'content', 'tag']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)

@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
+from django.urls import reverse
 # Create your models here.
 # CRUD functionalities
 
@@ -16,4 +17,6 @@ class Question(models.Model):
         return f'{self.user.username} - Quetion'
     
 
+    def get_absolute_url(self):
+        return reverse('question_blueprint:question_view')
 

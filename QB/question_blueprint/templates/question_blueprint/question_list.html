@@ -1,26 +1,51 @@
-{% extends "base_nav.html" %} {% block content%}
+{% extends "base_nav.html" %}{% load crispy_forms_tags %} {% block content%}
 <h1 class="text-center mb-2">Question List</h1>
 <div class="d-flex">
-  <button class="btn btn-outline-success ms-auto mx-4">Ask a question</button>
-</div> 
+  {% if user.is_authenticated %}
+  <a
+    href="{% url 'question_blueprint:question_ask_view' %}"
+    class="ms-auto mx-4"
+  >
+    <button class="btn btn-outline-success ms-auto mx-4">Ask a question</button>
+  </a>
+  {% else %}
+  <a href="{% url 'login' %}" class="ms-auto mx-4">
+    <button class="btn btn-outline-success">Ask a question</button>
+  </a>
+  {% endif %}
+</div>
 {% for question in questions %}
 <div class="container py-2">
   <div class="list-group">
     <div class="list-group-item list-group-item-action">
-      <a href="">{{question.title}}</a>
+      <h5 class="fw-bold">{{question.title}}</h5>
+
+      <div class="d-flex flex-row">
+        <div class="d-flex flex-row flex-wrap">
+          {% for t in question.tag.all %}
+          <div class="p-2 py-0">#{{t}}</div>
+
+          {% endfor %}
+        </div>
+        
+      </div>
+      <hr>
       {% if question.content|wordcount < 15 and question.content|length < 100 %}
-      <p>{{question.content}}</p>
+      <p class="">{{question.content}}</p>
       {% else %}
       <p>{{question.content|truncatechars:40}}</p>
       {% endif %}
+      <a href="{% url 'question_blueprint:question_detail_view' question.id %}"
+        >More Detail...</a
+      >
       <hr />
-      <span>Asked by <a href="{% url 'profile_view' question.user.username %}">{{question.user}}</a></span>
+      <span
+        >Asked by
+        <a href="{% url 'profile_view' question.user.username %}"
+          >{{question.user}}</a
+        ></span
+      >
       <p>On {{question.created_date}}</p>
-      <div class="d-flex flex-row">
-        {% for t in question.tag.all %}
-      <p class="rounded-pill px-2">#{{t}}</p>
-      {% endfor %}
-      </div>
     </div>
   </div>
 </div>
