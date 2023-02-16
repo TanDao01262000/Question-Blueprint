@@ -60,6 +60,9 @@
               <a class="nav-link active" aria-current="page" href="{% url 'question_blueprint:home' %}">Home</a>
             </li>
 
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'question_blueprint:question_view' %}">Question List</a>
+            </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'profile_view' user.username %}">Profile</a>
@@ -77,9 +80,7 @@
             </li>
             {% endif %}
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Question List</a>
-            </li>
+            
             <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown

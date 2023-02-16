@@ -16,16 +16,18 @@
                 class="rounded-circle img-fluid" style="width: 100px;" />
             </div>
             <h4 class="mb-2">{{ user1.username|title }}</h4>
-            <a href="{% url 'profile_update' %}"><button type="button" class="btn btn-outline-primary">
-                Update
-              </button></a>
+            {% if user1.username == user.username %}
+              <a href="{% url 'profile_update' %}"><button type="button" class="btn btn-outline-primary">
+                  Update
+                </button></a>
+            {% endif %}
             <hr>
             <div class="mb-4 pb-2">
-                <h4 class="mb-2">{{ user1.profile.bio }}</h4>
+                <h4 class="mb-2">Bio: {{ user1.profile.bio }}</h4>
             </div>
             <hr>
             <div class="mb-4 pb-2">
-                <h4 class="mb-2">{{ user1.email }}</h4>
+                <h4 class="mb-2">Email: {{ user1.email }}</h4>
             </div>
 
             <div class="mb-4 pb-2">

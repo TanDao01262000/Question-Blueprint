@@ -1,0 +1,12 @@
+{% extends "base_nav.html" %}
+{% load crispy_forms_tags %} 
+{% block content%}
+<div class="container my-5">
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button>Post</button>
+    <button>Cancel</button>
+</form>
+</div>
+{% endblock %}

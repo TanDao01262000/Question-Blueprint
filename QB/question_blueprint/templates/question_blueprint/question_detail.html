@@ -1,0 +1,34 @@
+{% extends "base_nav.html" %}{% load crispy_forms_tags %} 
+
+{% block title %}
+Detail
+{% endblock %}
+{% block content %}
+
+<div class="container my-5">
+    <div class="card">
+      <div class="card-body text-center">
+        <h1 class="card-title">Title: {{ single_question.title }}</h1>
+        <hr>
+        <p>Content: {{ single_question.content }}</p>
+        
+        <hr>
+              <span
+        >Asked by
+        <a href="{% url 'profile_view' single_question.user.username %}"
+          >{{single_question.user}}</a
+        ></span
+      >
+      <p>On {{single_question.created_date}}</p>
+        <div>
+        <button>Answer</button>
+        {% if single_question.user == user %}
+            <button>Edit Question</button>
+            <button>Delete Question</button>
+        {% endif %}
+        <a href="{% url 'question_blueprint:question_view' %}"><button>Back</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
