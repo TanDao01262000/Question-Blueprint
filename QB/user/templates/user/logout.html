@@ -1,14 +1,19 @@
-{% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block title %}Login{%endblock %} {% block content %}
 
-{% block title %}Login{% endblock %}
 
-{% block content %}
-<div class="container">
-            <h3 >You have been logged out!!</h3>
-            <div>
-                <a href="{% url 'login' %}"><button class="btn btn-primary" >Login </button></a>
 
-            </div>
+<div class="container d-flex">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card d-flex justify-content-center align-items-center">
+        <div class="card-body">
+          <h5 class="card-title">Card Title</h5>
+          <p class="card-text">Some example text.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
+    

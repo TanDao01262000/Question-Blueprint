@@ -9,7 +9,7 @@ Update {% endblock title%} {% block content %}
   </form>
   <div style="margin-top: 10px">
     <button class="btn btn-primary" type="submit">
-      <a href="{% url 'profile_view' %}" style="color: white; text-decoration: none">Go Back</a>
+      <a href="{% url 'profile_view' user.username%}" style="color: white; text-decoration: none">Go Back</a>
     </button>
   </div>
 </div>

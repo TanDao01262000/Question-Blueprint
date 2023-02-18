@@ -30,7 +30,8 @@ urlpatterns = [
     path('logout/', auth_view.LogoutView.as_view(template_name="user/logout.html"), name='logout'),
     path('profile/<str:username>/',user_views.profile_view,name='profile_view'),
     path('update/',user_views.update_profile,name='profile_update'),
-
+    path('accounts/', include('allauth.urls')),
+    path('accounts/google/login/', user_views.signup_redirect, name='signup_redirect'),
 
 ]
 

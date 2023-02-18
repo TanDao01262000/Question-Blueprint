@@ -49,7 +49,7 @@ def update_profile(request):
         'email': request.user.email,
     }
     cur_user_profile = {
-        'username' : request.user.profile.bio,
+        'bio' : request.user.profile.bio,
         'image': request.user.profile.image.url,
     }
     if request.method == "POST":
@@ -59,8 +59,9 @@ def update_profile(request):
         if user_update_form.is_valid() and profile_update_form.is_valid():
             user_update_form.save()
             profile_update_form.save()
+            print(user_update_form)
             messages.success(request, f'Update successfully')
-            return redirect('profile_view')
+            return redirect('profile_view', username=request.user.username)
     else:
         user_update_form = UserInfoUpdateForm(initial=cur_user_obj)
         profile_update_form = ProfileUpdateForm(initial=cur_user_profile)
@@ -70,3 +71,8 @@ def update_profile(request):
     }
 
     return render(request, 'user/update.html', context=context)
+
+
+def signup_redirect(request):
+    messages.error(request, "Something wrong here, it may be that you already have account!")
+    return redirect("home")
