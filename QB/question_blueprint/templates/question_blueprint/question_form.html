@@ -1,12 +1,15 @@
 {% extends "base_nav.html" %}
 {% load crispy_forms_tags %} 
 {% block content%}
-<div class="container my-5">
-<form action="" method="POST">
+<div class="container my-5 ">
+<form action="" method="POST" class="fw-bold">
     {% csrf_token %}
     {{form|crispy}}
-    <button>Post</button>
-    <button>Cancel</button>
+    <button class="btn btn-primary">Post</button>
+    <a href="{% url 'question_blueprint:question_view' %}" class="btn btn-primary">
+        Back
+    </a>
 </form>
+
 </div>
 {% endblock %}

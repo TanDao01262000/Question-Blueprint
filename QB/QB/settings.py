@@ -145,7 +145,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/login'
+LOGOUT_REDIRECT_URL = '/'
 
 AUTHENTICATION_BACKENDS = [
    'allauth.account.auth_backends.AuthenticationBackend'

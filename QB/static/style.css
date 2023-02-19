@@ -7,3 +7,26 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
+
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+  /* border: 10px; */
+  border-radius: 40px;
+}
+
+@media (max-width: 425px) {
+  button {
+    font-size: 12px;
+    padding: 5px;
+    margin: 3px;
+  }
+}
