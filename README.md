@@ -1,5 +1,4 @@
 # Question-Blueprint
-[![asciicast](https://asciinema.org/a/GOtFjxHGSPVDe8pyki78WxVd6.svg)](https://asciinema.org/a/GOtFjxHGSPVDe8pyki78WxVd6)
 # Team 1 -  Question Blueprint
 
 Question Blueprint is a web application where user can ask, answers question and also have some interactions with them. 
