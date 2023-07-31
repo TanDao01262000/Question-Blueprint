@@ -1,0 +1,138 @@
+{% extends "base_nav.html" %}{% load crispy_forms_tags %} {% block title %}
+Detail {% endblock %} {% block content %}
+
+<div class="container my-5">
+
+  <div class="card">
+    
+
+    <div class="card-body text-center">
+
+      <h4 class="card-title">Title: {{ single_question.title }}</h4>
+
+      <hr />
+      <h5>Content: {{ single_question.content }}</h5>
+      
+      <form method="POST" action="{% url 'main_app:upvote' single_question.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="pk" value="{{single_question.id}}">
+        <input type="hidden" name="vote_type" value="question">
+        <div class="d-flex align-items-center gap-3">
+        <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">
+          <i class="fas fa-caret-up fa-lg"></i>
+        </button>
+          <div class="text-primary fw-bold fs-4">{{ single_question.upvote_num }}</div>
+        </div>
+      </form>
+
+
+
+
+
+      <audio controls>
+        <source src="{{ single_question.audio_file.url }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+
+
+      <hr />
+      <span
+        >Asked by
+        <a href="{% url 'profile_view' single_question.user.username %}"
+          >{{single_question.user}}</a
+        ></span
+      >
+      <p>On {{single_question.created_date}}</p>
+
+      <div class="button-group">
+        <a href="{% url 'main_app:answer_create_view' single_question.id %}"
+          ><button class="btn btn-outline-primary m-2">Answer</button></a
+        >
+        {% if single_question.user == user %}
+        <a href="{% url 'main_app:question_update_view' single_question.id %}"
+          ><button class="btn btn-outline-warning m-2">Update</button></a
+        >
+        <a href="{% url 'main_app:question_delete_view' single_question.id %}"
+          ><button class="btn btn-outline-danger m-2">Delete</button></a
+        >
+        {% endif %}
+        <a href="{% url 'main_app:question_view' %}"
+          ><button class="btn btn-outline-dark m-2">Back</button></a
+        >
+      </div>
+      <hr />
+
+      <div>
+    {% if not sorted_answers %}
+        <h5>No answer...</h5>
+    {% else %}
+        <div class="sort-by mb-3">
+            <form method="GET">
+                <div class="form-group row">
+                    <label for="sort" class="col-sm-2 col-form-label">Sort by:</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="sort" name="sort">
+                            <option value="created_date" {% if request.GET.sort == 'created' %}selected{% endif %}>Date</option>
+                            <option value="upvote" {% if request.GET.sort == 'upvote' %}selected{% endif %}>Upvotes</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-outline-secondary btn-block" type="submit">Sort</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+
+<!-- its broken here for model -->
+
+<div class="card mb-3">
+  {% for ans in sorted_answers %}
+  <div class="d-flex justify-content-between align-items-center">
+    <form method="POST" action="{% url 'main_app:upvote' single_question.id %}">
+      {% csrf_token %}
+      <input type="hidden" name="pk" value="{{single_question.id}}">
+      <input type="hidden" name="ans_id" value="{{ans.id}}">
+            <input type="hidden" name="vote_type" value="answer">
+            <div class="d-flex align-items-center gap-3">
+              <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">
+                <i class="fas fa-caret-up fa-lg"></i>
+              </button>
+              <div class="text-center">
+                <div class="fw-bold">{{ ans.answer_vote.count }}</div>
+                    <div class="text-muted small">votes</div>
+                  </div>
+            </div>
+          </form>
+        <div class="card-body">
+          <p class="card-text text-center">{{ ans.content }}</p>
+          <small class="text-muted">Posted by: <a href="{% url 'profile_view' ans.user.username %}">{{ ans.user.username }}</a> on {{ ans.created_date }}</small>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+  
+<!-- its broken here for model -->
+
+
+
+
+    {% endif %}
+</div>
+
+      {% if sim_ques %}
+      <hr />
+      <div >
+        <p class="float-end">Questions you may be interested in:
+           <a href="{% url 'main_app:question_detail_view' sim_id %}">{{ sim_quesiton_title }}</a></p>
+
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
