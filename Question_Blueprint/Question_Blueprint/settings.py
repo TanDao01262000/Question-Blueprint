@@ -74,7 +74,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    
 ]
+
+CSRF_TRUSTED_ORIGINS = ['question-blueprint-production.up.railway.app']
 
 ROOT_URLCONF = 'Question_Blueprint.urls'
 
