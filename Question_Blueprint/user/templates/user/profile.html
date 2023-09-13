@@ -15,14 +15,14 @@
           <div class="card-body text-center">
             <div class="mt-3 mb-4">
               <img
-                src="{{ user.profile.image.url }}"
+                src="{{ user1.profile.image.url }}"
                 class="rounded-circle img-fluid"
                 style="width: 100px"
               />
             </div>
             <h4 class="mb-2">{{ user1.username|title }}</h4>
             {% if user1.username == user.username %}
-            <a href="{% url 'profile_update' user.username %}"
+            <a href="{% url 'profile_update' user1.username %}"
               ><button type="button" class="btn btn-outline-primary">
                 Update
               </button></a
