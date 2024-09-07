@@ -303,7 +303,6 @@ def upvote(request, pk):
                 upvote.delete()
             else:
                 AnswerUpvote.objects.create(answer=answer, user=request.user)
-
                 print(f"Answer Upvote success")
         return redirect('main_app:question_detail_view', pk)
 

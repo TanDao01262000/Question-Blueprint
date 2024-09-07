@@ -11,7 +11,7 @@ def login(request):
     return redirect('login')
 
 
-def logout(request):
+def logout(request):    
     logout(request)
     return redirect('logout')
 
